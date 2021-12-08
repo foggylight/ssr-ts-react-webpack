@@ -1,9 +1,11 @@
 import React from 'react';
 
+import './Main.scss';
+
 const Main = () => {
     return (
-        <main>
-            <p>text</p>
+        <main className='main'>
+            <p className='text'>text</p>
         </main>
     )
 };

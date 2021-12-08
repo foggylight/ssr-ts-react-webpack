@@ -1,9 +1,11 @@
 import React from 'react';
 
+import header from './Header.module.scss';
+
 const Header = () => {
     return (
         <header>
-            <h1>Header</h1>
+            <h1 className={header.text}>Header</h1>
         </header>
     )
 };

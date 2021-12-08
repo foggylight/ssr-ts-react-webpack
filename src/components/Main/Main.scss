@@ -1,0 +1,14 @@
+@import './colors.scss';
+
+.main {
+    height: 500px;
+    box-sizing: border-box;
+    padding: 15px;
+
+    background-color: $bg-main;
+
+    .text {
+        font-family: sans-serif;
+        font-size: 20px;
+    }
+}
