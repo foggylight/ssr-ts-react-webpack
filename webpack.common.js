@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
     entry: './src/index.tsx',
@@ -22,12 +23,6 @@ module.exports = {
                     }
                 }
             ],
-            include: /\.module\.css$/,
-        },
-        {
-            test: /\.css$/i,
-            use: [MiniCssExtractPlugin.loader, 'css-loader'],
-            exclude: /\.module\.css$/,
         },
         {
             test: /\.s[ac]ss$/i,
@@ -41,20 +36,19 @@ module.exports = {
                 },
                 'sass-loader',
             ],
-            include: /\.module\.s[ac]ss$/,
-        },
-        {
-            test: /\.s[ac]ss$/i,
-            use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
-            exclude: /\.module\.s[ac]ss$/,
         },
         ],
     },
     plugins: [
         new HtmlWebpackPlugin({
-        template: 'src/index.html',
+            template: 'src/index.html',
         }),
+
         new MiniCssExtractPlugin(),
+
+        new ESLintPlugin({ 
+            extensions: ['ts', 'tsx', 'js'] 
+        }),
     ],
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
