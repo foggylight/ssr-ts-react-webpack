@@ -1,0 +1,35 @@
+{
+    "env": {
+        "browser": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb",
+        "airbnb-typescript"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint"
+    ],
+    "ignorePatterns": ["webpack.*.js"],
+    "rules": {
+        "react/function-component-definition": [
+            2,
+            {
+              "namedComponents": "arrow-function"
+            }
+        ]
+    },
+    "overrides": [
+        {
+            "files": ["src/components/Header/**"],
+            "rules": {
+                "@typescript-eslint/semi": [2, "never"]
+            }
+        }
+    ]
+}
