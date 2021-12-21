@@ -5,7 +5,8 @@
     "extends": [
         "plugin:react/recommended",
         "airbnb",
-        "airbnb-typescript"
+        "airbnb-typescript",
+        "plugin:prettier/recommended"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -28,7 +29,7 @@
         {
             "files": ["src/components/Header/**"],
             "rules": {
-                "@typescript-eslint/semi": [2, "never"]
+                "prettier/prettier": ["error", {"semi": false}]
             }
         }
     ]
