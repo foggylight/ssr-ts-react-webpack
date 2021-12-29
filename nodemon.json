@@ -1,0 +1,8 @@
+{
+    "verbose": false,
+    "watch": ["./server"],
+    "execMap": {
+        "ts": "ts-node"
+    },
+    "ext": "ts, js"
+}

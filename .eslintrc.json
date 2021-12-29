@@ -1,5 +1,6 @@
 {
     "env": {
+        "node": false,
         "browser": true
     },
     "extends": [
@@ -10,7 +11,7 @@
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "project": "./tsconfig.json"
+        "project": ["./tsconfig.client.json", "./tsconfig.server.json"]
     },
     "plugins": [
         "react",
@@ -25,5 +26,14 @@
             }
         ],
         "import/prefer-default-export": 0
-    }
+    },
+    "overrides": [
+        {
+            "files": "server/**/*",
+            "env": {
+                "node": true,
+                "browser": false
+            }
+        }
+    ]
 }

@@ -1,15 +1,19 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
-    entry: './src/index.tsx',
+    entry: './client/index.tsx',
     module: {
         rules: [
         {
             test: /\.(ts|tsx)$/,
-            use: 'ts-loader',
+            use: [{
+                loader: 'ts-loader',
+                options: {
+                    configFile: "tsconfig.client.json"
+                }
+            }],
             exclude: /node_modules/,
         },
         {
@@ -41,14 +45,10 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'src/index.html',
+            template: 'client/index.html',
         }),
 
         new MiniCssExtractPlugin(),
-
-        new ESLintPlugin({ 
-            extensions: ['ts', 'tsx', 'js'] 
-        }),
     ],
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],

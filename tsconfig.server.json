@@ -1,11 +1,14 @@
 {
+    "include": ["server"],
     "compilerOptions": {
         "outDir": "./dist/",
         "noImplicitAny": true,
-        "module": "es6",
+        "module": "CommonJS",
+        "esModuleInterop": true,
         "allowJs": true,
         "jsx": "react",
         "moduleResolution": "node",
-        "allowSyntheticDefaultImports": true
+        "allowSyntheticDefaultImports": true,
+        "skipLibCheck": true
     }
 }
