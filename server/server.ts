@@ -1,49 +1,22 @@
 import express from 'express';
 import fs from 'fs';
 import path from 'path';
-import webpack from 'webpack';
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
 
-const config = require('../webpack.prod');
+import { App } from '../client/App';
 
 const app = express();
 const port = 4000;
 
-const compiler = webpack(config);
-
-compiler.run((err, stats) => {
-  if (err) {
-    console.error(err);
-    return;
-  }
-
-  if (!stats) return;
-  const info = stats.toJson();
-
-  if (stats.hasErrors()) {
-    console.error(info.errors);
-  }
-
-  if (stats.hasWarnings()) {
-    console.warn(info.warnings);
-  }
-
-  console.log(
-    stats.toString({
-      colors: true,
-    }),
-  );
-
-  compiler.close((closeErr) => {
-    if (closeErr) {
-      console.error(closeErr);
-    }
-    console.log('Compilation ended');
-  });
-});
-
 app.get(/\.(js|css|map|ico)$/, express.static(path.resolve(__dirname, '../public')));
 app.use('*', (request, response) => {
-  const indexHTML = fs.readFileSync(path.resolve(__dirname, '../public/index.html'));
+  const appHTML = ReactDOMServer.renderToString(React.createElement(App));
+  let indexHTML = fs.readFileSync(path.resolve(__dirname, '../public/index.html'), {
+    encoding: 'utf8',
+  });
+
+  indexHTML = indexHTML.replace('<div id="app"></div>', `<div id="app">${appHTML}</div>`);
 
   response.contentType('text/html').status(200).send(indexHTML);
 });

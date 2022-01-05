@@ -6,6 +6,7 @@
         "module": "CommonJS",
         "esModuleInterop": true,
         "moduleResolution": "node",
+        "jsx": "react",
         "allowSyntheticDefaultImports": true,
         "skipLibCheck": true
     }
