@@ -5,8 +5,6 @@
         "noImplicitAny": true,
         "module": "CommonJS",
         "esModuleInterop": true,
-        "allowJs": true,
-        "jsx": "react",
         "moduleResolution": "node",
         "allowSyntheticDefaultImports": true,
         "skipLibCheck": true
