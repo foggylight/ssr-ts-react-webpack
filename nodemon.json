@@ -4,5 +4,5 @@
     "execMap": {
         "ts": "ts-node"
     },
-    "ext": "ts, js"
+    "ext": "ts, tsx, js"
 }
