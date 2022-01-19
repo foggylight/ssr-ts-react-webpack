@@ -20,9 +20,6 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 loader: 'ts-loader',
-                options: {
-                    configFile: 'tsconfig.server.json',
-                },
             },
             {
                 test: /\.(css|s[ac]ss)$/,

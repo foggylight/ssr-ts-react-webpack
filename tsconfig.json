@@ -1,5 +1,4 @@
 {
-    "include": ["client", "assets.d.ts"],
     "compilerOptions": {
         "outDir": "./public/",
         "noImplicitAny": true,

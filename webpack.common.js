@@ -8,12 +8,7 @@ module.exports = {
         rules: [
         {
             test: /\.(ts|tsx)$/,
-            use: [{
-                loader: 'ts-loader',
-                options: {
-                    configFile: "tsconfig.client.json"
-                }
-            }],
+            use: 'ts-loader',
             exclude: /node_modules/,
         },
         {
